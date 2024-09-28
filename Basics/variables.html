@@ -7,11 +7,20 @@
 </head>
 <body>
   
+  <h1>Variables in Javascript</h1>
 
   <script>
     let welcomeMessage = 'Hello Friends'
     console.log('hello friends')
     console.log(welcomeMessage)
+    let bagPrice =  (15599-(10/100*15599))-272;
+    let jeansPrice = (2499-(41/100*2499))-29
+    let bagValue = Math.round((jeansPrice+bagPrice+20+25)*118/100);
+    let bagSummary = `Your Final Myntra Bag Amount is ₹${bagValue}`;
+
+    console.log(bagSummary);
+
+
   </script>
 </body>
 </html>
