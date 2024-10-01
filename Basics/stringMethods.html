@@ -27,22 +27,34 @@
   <h3>4. str.indexOf() - to find the index of string's first occurance.</h3>
   <h3>5. str.slice() - to cut the string.</h3>
   <h3>6. Method Chaining - we can write string method one after another.</h3>
+  <h3>7. Replace Method - only first occurance is replaced in the string</h3>
+  <h3>8. Repeat Method - it repeats the same string by taking argument of how many time</h3>
   <script>
     // Trim  method
-    let str1 = prompt("Enter your string below: ");
-    console.log(`Your string is "${str.trim()}".`);
+    let str1 = "  Yash Izate    ";
+    console.log(`Your string is "${str1.trim()}".`);
 
     // Upper and Lower Case Method
-    console.log(str.toUpperCase());
-    console.log(str.toLowerCase());
+    console.log(str1.toUpperCase());
+    console.log(str1.toLowerCase());
 
     //  indexOf string
     let str2 = "ILoveCoding";
     console.log(str2.indexOf('C'));
 
     // string slicing
-    
-    
+    let str3 = "Apna College";
+    console.log(str3.slice(1,));
+    console.log(str3.slice(5,12));
+
+    // replace string
+    let str4 = "I Enjoy Coding";
+    console.log(str4.replace("Enjoy","Do"));
+
+    // Repeat string
+    let str5 = "Apple ";
+    console.log(str5.repeat(5));
+
   </script>
 </body>
 
