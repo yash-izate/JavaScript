@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Methods</title>
+</head>
+
+<body>
+
+  <h1 style="text-align: center; text-decoration: underline;"><i>Array Methods in JavaScript</i></h1>
+
+  <h2>
+    <ul>
+      <li>Push - add to end</li>
+      <li>Unshift - add to start</li>
+      <li>Pop - delete from end and return it</li>
+      <li>Shift - delete from start and returns it</li>
+    </ul>
+  </h2>
+  <script>
+
+    let cars = ["tata", "maruti", "sujuki", "creta"];
+
+    //  to do operation of adding and removing at end
+    console.log(cars.pop());
+    console.log(cars.push("xuv"));
+
+    //  to do add remove operation at beginning of array
+    console.log(cars.shift());
+    console.log(cars.unshift("tesla"));
+
+    console.log(cars);
+
+  </script>
+</body>
+
+</html>
