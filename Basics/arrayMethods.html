@@ -17,6 +17,10 @@
       <li>Unshift - add to start</li>
       <li>Pop - delete from end and return it</li>
       <li>Shift - delete from start and returns it</li>
+      <li>Concat - merge 2 arrays</li>
+      <li>Reverse - reverse an array</li>
+      <li>Splice - removes, replaces, add elements in place</li>
+      <li>Sort - sorts an array in ascending or descending order</li>
     </ul>
   </h2>
   <script>
@@ -32,6 +36,32 @@
     console.log(cars.unshift("tesla"));
 
     console.log(cars);
+
+    // how to concate the array
+    let fruits = ["apple", "mango", "berries"];
+    let vegetables = ["spinach", "ladyfinger", "chillies", "potatos"];
+
+    let newArray = fruits.concat(vegetables);
+    console.log(newArray);
+
+    console.log(newArray.reverse())
+
+    // splice method 
+    let colors = ["red", "yellow", "blue", "orange", "pink", "white"];
+     
+    colors.splice(4);
+    console.log(colors);
+
+    colors.splice(0,1);
+    console.log(colors);
+
+    colors.splice(0,1, "black", "grey");
+    console.log(colors);
+
+    //  sorting of array
+
+    colors.sort();
+    console.log(colors);
 
   </script>
 </body>
