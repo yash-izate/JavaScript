@@ -1,0 +1,16 @@
+h1 {
+  text-decoration: underline;
+}
+
+h3 {
+  text-align: justify;
+  color: rgb(7, 152, 255);
+}
+
+span {
+  color: red;
+}
+
+div {  
+  margin-top: 15%;
+}
