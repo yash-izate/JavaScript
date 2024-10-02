@@ -7,14 +7,27 @@
   <link rel="stylesheet" href="/Project/To Do List/ToDoList.css">
 </head>
 <body>
-  <div>
+  <div class="container">
     <h1>To Do App</h1>
-  <h3>Enter <span>"list"</span> to show all tasks</h3>
-  <h3>Enter <span>"add"</span> to add task</h3>
-  <h3>Enter <span>"delete"</span> to remove a task</h3>
-  <h3>Enter <span>"quit"</span> to exit the app</h3>
+    <div class="instructions">
+      <h3>Instructions:</h3>
+      <ul>
+        <li>Enter <span>"add"</span> to add a task</li>
+        <li>Enter <span>"delete"</span> to remove a task</li>
+        <li>Enter <span>"quit"</span> to exit the app</li>
+      </ul>
+    </div>
+    
+    <div class="task-input">
+      <input type="text" id="task" placeholder="Enter a new task..." />
+      <button id="addTaskBtn">Add Task</button>
+    </div>
+    
+    <ul id="taskList"></ul>
+    
+    <button id="deleteTaskBtn">Delete Last Task</button>
   </div>
   
-  <script src="/Project/To Do List/ToDoList.js"></script>
+  <script src="/Project/To Do List/ToDoList.js" defer></script>
 </body>
 </html>
