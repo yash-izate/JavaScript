@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loops with Arrays</title>
+</head>
+
+<body>
+
+  <h1>Loops with nested arrays</h1>
+
+  <script>
+    let heroes = [["IronMan", "SpiderMan", "Thor"],
+    ["Wanda", "Vision", "CaptainAmerica"],
+    ["Panther", "AntMan", "DoctorStrange"],
+    ["Hulk", "Loki", "Natasha"]];
+
+    for (let i = 0; i < heroes.length; i++) {
+      console.log(`List #${i+1}`);
+      for (let j = 0; j < heroes[i].length; j++) {
+        console.log(heroes[i][j]);
+      }
+    }
+
+  </script>
+</body>
+
