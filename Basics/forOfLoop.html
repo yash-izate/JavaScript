@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Of Loop</title>
+</head>
+<body>
+  <h1>For Of Loop</h1>
+  
+  <script>
+    let basket = ["apple", "banana", "licchi", "strawberry", "papaya"];
+
+    for (fruit of basket) {
+      console.log(fruit);
+    }
+
+    //  second example
+
+    for (char of "Apna College") {
+      console.log(char);
+    }
+
+    //  nested for of loop
+    let marvel = [["IronMan", "SpiderMan", "Thor"],
+    ["Wanda", "Vision", "CaptainAmerica"],
+    ["Panther", "AntMan", "DoctorStrange"],
+    ["Hulk", "Loki", "Natasha"]];
+    
+    for (avengers of marvel) {
+      for (hero of avengers) {
+        console.log(hero);
+      }
+    }
+
+
+  </script>
+</body>
+</html>
