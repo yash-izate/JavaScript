@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess The Number</title>
+</head>
+
+<body>
+  <h1>Guess The Number Game</h1>
+
+  <script>
+    const max = prompt("Enter max range");
+    console.log("Maximum range is ", max);
+
+    const random = Math.floor(Math.random() * max) + 1;
+    // alert("Ans : " + random);
+
+    let guess = prompt("Guess the number or type quit to exit");
+
+    while (true) {
+      if (guess == "quit") {
+        alert("User Quits");
+        break;
+      }
+
+      if (Number(guess) == random) {
+        console.log("You Won!! Congrats: " + random);
+        break;
+      } else if (Number(guess) < random) {
+        guess = prompt("Hint: Go for higher number")
+      } else if (Number(guess) > random) {
+        guess = prompt("Hint: Go for lower number");
+      }
+
+    }
+  </script>
+</body>
+
+</html>
