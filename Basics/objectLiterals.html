@@ -11,16 +11,6 @@
   
   <script>
     // const means - reference or address is fixed, values pairs can be changed
-    const student = {
-      name: "yash",
-      age: 21,
-      roll: 61,
-      cgpa: 95.4,
-      city: "nagpur"
-    };
-
-    console.log(student);
-
     // object literals can also stored arrays
 
     let college = {
@@ -30,6 +20,24 @@
     };
 
     console.log(college);
+
+    // how to add or remover properties in object literals
+
+    const student = {
+      name: "yash",
+      age: 21,
+      roll: 61,
+      cgpa: 95.4,
+      city: "nagpur"
+    };
+
+    student.city = "mumbai";
+    student.gender= "male";
+    student.marks = "A";
+    delete student.cgpa;
+
+    
+    console.log(student);
   </script>
 </body>
 </html>
