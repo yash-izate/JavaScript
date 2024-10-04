@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function</title>
+</head>
+<body>
+
+  <h1>Function in JavaScript</h1>
+  <h2>return keyword - it is used to return some value from the function</h2>
+  
+  <script>
+
+    // function to print hello
+
+    function hello() {
+      console.log("Hello World!");
+    }
+    
+    hello();
+
+    // function to print name
+
+    function printName() {
+      console.log("Apna College");
+    }
+
+    printName();
+
+    // function to print number
+
+    function printNumber() {
+      for (let i = 1; i<=10; i++) {
+        console.log(i);
+      }
+    }
+
+    printNumber();
+
+    // average of 3 numbers
+
+    function average(x,y,z) {
+      let avg = (x+y+z)/3;
+      console.log("The average of three number is ", avg);
+    }
+
+    average(3,4,5);
+
+    // print multiplication table
+
+    function table(x) {
+      for(let i = x; i<=10*x; i += x) {
+        console.log(i);
+      }
+    }
+
+    table(12);
+
+    // return value
+
+    function sum(x,y){
+      let result = x+y;
+      return result;
+    }
+
+    console.log("Using return keyword value is : ", sum(5,7));
+
+    
+
+  </script>
+</body>
+</html>
