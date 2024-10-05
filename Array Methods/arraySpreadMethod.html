@@ -19,18 +19,23 @@
     let newObj = {...arr};
     
     console.log(newArr);
-    console.log("_________________________");
     console.log(newObj);
+
+    console.log("__________________________________________________");
 
     //  can also be done with string
 
     let str = "Welcome to";
     let char = "Apna College";
 
-    let newChar = [...str, ...char];
+    let arrChar = [...str, ...char];
+    let objChar = {...str, ...char};
 
-    console.log(newChar);
-    console.log("------------------------------------");
+    console.log(arrChar);
+    console.log(objChar);
+
+    console.log("________________________________________________________");
+    
     // spread with objects literals
 
     const data = {
@@ -38,12 +43,10 @@
       password: "pass@1234",
     };
 
+    const objData = {...data, id:123, country: "India"};
 
-    console.log(data);
-    
-    const dataCopy = {...data, id:123, country: "India"};
+    console.log(objData);
 
-    console.log(dataCopy);
 
     
   </script>
