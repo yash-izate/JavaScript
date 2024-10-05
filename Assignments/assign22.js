@@ -7,5 +7,5 @@ let result = arr.every((el) => {
 if (result) {
   console.log("All elements are multiple of 10.");
 } else {
-  console.log("Array elements are not multiples of 10.")
+  console.log("Array elements are not multiples of 10.");
 }
