@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Mqp Method</title>
+</head>
+
+<body>
+  <h1>Array Map Method</h1>
+
+  <h2>it apply function to each element of an array and takes the return value and make new array out of it.</h2>
+
+  <script>
+    let num = [1, 2, 3, 4, 5];
+
+    let double = num.map((el) => {
+      return el * el;
+    }
+    );
+
+    console.log(double);
+
+    //  make gpa array out of student object
+
+    let students = [
+      {
+        name: "yash",
+        marks: 95.4
+      },
+      {
+        name: "ojas",
+        marks: 86.5
+      },
+      {
+        name: "varad",
+        marks: 79.6
+      }
+
+    ]
+
+    let gpa = students.map((el) => {
+      return el.marks / 10;
+    }
+    )
+
+    console.log(gpa);
+
+
+  </script>
+</body>
+
+</html>
