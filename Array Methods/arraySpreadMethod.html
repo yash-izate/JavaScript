@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spread Method</title>
+</head>
+<body>
+  <h1>Spread Method with Arrays & Objects</h1>
+
+  <h2>spread method is very useful</h2>
+  
+  <script>
+    //  spread with arrays
+
+    let arr = [2,6,7,1,9,4,8,5];
+
+    let newArr = [...arr];
+    let newObj = {...arr};
+    
+    console.log(newArr);
+    console.log("_________________________");
+    console.log(newObj);
+
+    //  can also be done with string
+
+    let str = "Welcome to";
+    let char = "Apna College";
+
+    let newChar = [...str, ...char];
+
+    console.log(newChar);
+    console.log("------------------------------------");
+    // spread with objects literals
+
+    const data = {
+      email: "ironman@marvels.com",
+      password: "pass@1234",
+    };
+
+
+    console.log(data);
+    
+    const dataCopy = {...data, id:123, country: "India"};
+
+    console.log(dataCopy);
+
+    
+  </script>
+</body>
+</html>
