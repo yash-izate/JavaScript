@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destructuring</title>
+</head>
+
+<body>
+  <h1>Destructuring</h1>
+
+  <script>
+    let names = ["tony", "anurag", "swapnil", "ojas", "yash"];
+
+    // old method 
+    // let winner = names[4];
+    // let runnerup = names[3];
+    // let secondRunnerup = names[2];
+
+    // new destructuring method
+    // first variable will take first index value , second variable will take second variable value
+    // in others spread method is used which will store other index values
+     
+    let [winner, runnerup, ...others] = names;
+
+    console.log(winner);
+    console.log(others);
+
+  </script>
+</body>
+
+</html>
