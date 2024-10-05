@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maximum in Array</title>
+</head>
+
+<body>
+  <h1>Maximum in Array</h1>
+
+  <script>
+    let arr = [1, 6, 3, 9, 4, 2, 5, 8, 7];
+
+    let max = arr.reduce((max, el) => {
+      if (max < el) {
+        return el;
+      } else {
+        return max;
+      }
+    });
+
+    console.log(max);
+  </script>
+</body>
+
+</html>
