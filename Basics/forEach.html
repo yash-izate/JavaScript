@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Each Function</title>
+</head>
+
+<body>
+
+  <h1>For each Method in Array</h1>
+
+  <script>
+    // 1st method
+    let arr1 = [1, 2, 3, 4, 5];
+
+    let print = function (el) {
+      console.log(el);
+    };
+
+    arr1.forEach(print);
+
+    //  2nd method
+    let arr2 = [6, 7, 8, 9, 10];
+
+    arr2.forEach(
+      function (ele) {
+        console.log(ele);
+      }
+    );
+
+    //  3rd method 
+    let arr3 = ['a', 'p', 'n', 'a', 'c', 'o', 'l', 'l', 'e', 'g', 'e'];
+
+    arr3.forEach(
+      (element) => {
+        console.log(element);
+      }
+    );
+
+  </script>
+</body>
+
+</html>
