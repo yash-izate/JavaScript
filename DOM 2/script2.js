@@ -9,4 +9,7 @@ document.querySelector("body").append(btn);
 btn.classList.add("button");
 input.classList.add("input");
 
-input.placeholder = "search here...";
+// input.placeholder = "search here...";
+input.setAttribute("placeholder", "search here...")
+
+btn.setAttribute("id", "btn1");
