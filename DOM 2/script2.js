@@ -13,3 +13,7 @@ input.classList.add("input");
 input.setAttribute("placeholder", "search here...")
 
 btn.setAttribute("id", "btn1");
+
+let para = document.createElement("p");
+para.innerHTML = "<b>Apna College</b> <u>Delta</u> <i>Student</i> !!!";
+document.querySelector("body").append(para);
