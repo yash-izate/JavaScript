@@ -1,0 +1,11 @@
+.button {
+  color: aliceblue;
+  background-color: blue;
+  margin: 5px;
+  border: 2px solid black;
+}
+
+.input {
+  border: 2px solid black;
+  border-radius: 10px;
+}
