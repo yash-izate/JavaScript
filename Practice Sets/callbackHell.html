@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CallBack Hell</title>
+</head>
+
+<body>
+  <h1>Apna College</h1>
+
+  <script>
+    let h1 = document.querySelector("h1");
+
+    function changeColor(color, delay, nextColorChange) {
+      setTimeout(() => {
+        h1.style.color = color;
+        nextColorChange();
+      }, delay);
+
+    }
+
+    changeColor("red", 1000, () => {
+      changeColor("blue", 1000, () => {
+        changeColor("hotpink", 1000, () => {
+          changeColor("green", 1000, () => {
+            changeColor("purple", 1000);
+          });
+        });
+      });
+    });
+
+    // setTimeout(() => {
+    //   h1.style.color = "red";
+    // }, 1000);
+
+    // setTimeout(() => {
+    //   h1.style.color = "blue";
+    // }, 2000);
+
+    // setTimeout(() => {
+    //   h1.style.color = "green";
+    // }, 3000);
+
+    // setTimeout(() => {
+    //   h1.style.color = "hotpink";
+    // }, 4000);
+
+    // setTimeout(() => {
+    //   h1.style.color = "black";
+    // }, 5000);
+
+
+  </script>
+</body>
+
+</html>
