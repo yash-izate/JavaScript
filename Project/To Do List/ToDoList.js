@@ -33,6 +33,13 @@ function updateTaskList() {
   todo.forEach((task, index) => {
     const li = document.createElement('li');
     li.textContent = task;
+
+    // Add click event to delete individual tasks
+    li.addEventListener('click', () => {
+      todo.splice(index, 1); // Remove task from array
+      updateTaskList(); // Update the displayed list
+    });
+
     taskList.appendChild(li);
   });
 }
