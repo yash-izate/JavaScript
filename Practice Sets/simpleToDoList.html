@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+
+    .instructions {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #e7f1ff;
+      border-radius: 8px;
+      border-left: 4px solid #007bff;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 15px;
+      background: #007bff;
+      color: white;
+      margin: 10px 0;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background: #0056b3;
+    }
+
+    .task-input {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button {
+      padding: 15px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    #deleteTaskBtn {
+      background-color: #dc3545;
+    }
+
+    #deleteTaskBtn:hover {
+      background-color: #c82333;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .task-input {
+        flex-direction: column;
+      }
+
+      input[type="text"], button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>To Do App</h1>
+    <div class="instructions">
+      <h3>Instructions:</h3>
+      <ul>
+        <li>Enter a task and click "Add Task" to add a task.</li>
+        <li>Click on a task to delete it.</li>
+        <li>Click "Delete Last Task" to remove the last task in the list.</li>
+      </ul>
+    </div>
+    
+    <div class="task-input">
+      <input type="text" id="task" placeholder="Enter a new task..." />
+      <button id="addTaskBtn">Add Task</button>
+    </div>
+    
+    <ul id="taskList"></ul>
+    
+    <button id="deleteTaskBtn">Delete Last Task</button>
+  </div>
+
+  <script>
+    let todo = [];
+
+    const taskInput = document.getElementById('task');
+    const taskList = document.getElementById('taskList');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const deleteTaskBtn = document.getElementById('deleteTaskBtn');
+
+    // Add task event
+    addTaskBtn.addEventListener('click', () => {
+      const task = taskInput.value.trim();
+      if (task) {
+        todo.push(task);
+        updateTaskList();
+        taskInput.value = ''; // Clear input field
+      } else {
+        alert('Please enter a task.');
+      }
+    });
+
+    // Delete the last task event
+    deleteTaskBtn.addEventListener('click', () => {
+      if (todo.length > 0) {
+        todo.pop();
+        updateTaskList();
+      } else {
+        alert('No tasks to delete.');
+      }
+    });
+
+    // Function to update the task list display
+    function updateTaskList() {
+      taskList.innerHTML = ''; // Clear the current list
+      todo.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.textContent = task;
+
+        // Add click event to delete individual tasks
+        li.addEventListener('click', () => {
+          todo.splice(index, 1); // Remove task from array
+          updateTaskList(); // Update the displayed list
+        });
+
+        taskList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
