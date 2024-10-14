@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Name Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" id="nameInput" placeholder="Enter your name" oninput="updateHeading()" />
+  <h2 id="nameHeading">Your name will appear here</h2>
+
+  <script>
+    function updateHeading() {
+      const input = document.getElementById('nameInput').value;
+      const filteredInput = input.replace(/[^a-zA-Z\s]/g, ''); // Allows only a-z, A-Z, and spaces
+      document.getElementById('nameHeading').textContent = filteredInput || "Your name will appear here";
+    }
+  </script>
+</body>
+
+</html>
