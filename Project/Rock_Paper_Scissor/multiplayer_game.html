@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game - Multiplayer</title>
+    <style>
+        /* Global reset and modern font styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        /* Styling for the header */
+        h1 {
+            background-color: #1e3d58;
+            color: #fff;
+            padding: 1rem;
+            font-size: 2rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* Form container for entering player names */
+        #input-container {
+            margin-top: 3rem;
+        }
+
+        #input-container input {
+            padding: 0.75rem;
+            font-size: 1rem;
+            margin-right: 1rem;
+            border: 2px solid #1e3d58;
+            border-radius: 0.5rem;
+            outline: none;
+        }
+
+        #input-container button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            background-color: #1e3d58;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #input-container button:hover {
+            background-color: #163046;
+        }
+
+        /* Game container */
+        #game-container {
+            margin-top: 2rem;
+        }
+
+        .choices {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .choice {
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f4f8;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .choice:hover {
+            transform: scale(1.05);
+            background-color: #1e3d58;
+        }
+
+        img {
+            height: 160px;
+            width: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Scoreboard */
+        .score-board {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            gap: 5rem;
+            color: #1e3d58;
+        }
+
+        #msg {
+            background-color: #1e3d58;
+            color: #fff;
+            font-size: 2rem;
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+        }
+
+        #final-scores {
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .final-score {
+            background-color: #f0f4f8;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.2rem;
+            color: #1e3d58;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissors - Multiplayer</h1>
+
+    <div id="input-container">
+        <input type="text" id="player1" placeholder="Enter Player 1 Name" required />
+        <input type="text" id="player2" placeholder="Enter Player 2 Name" required />
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <h2 id="current-player"></h2>
+        <div class="choices">
+            <div class="choice" id="rock">
+                <img src="/Project/Rock_Paper_Scissor/assets/rock.png" alt="Rock">
+            </div>
+            <div class="choice" id="paper">
+                <img src="/Project/Rock_Paper_Scissor/assets/paper.png" alt="Paper">
+            </div>
+            <div class="choice" id="scissors">
+                <img src="/Project/Rock_Paper_Scissor/assets/scissors.png" alt="Scissors">
+            </div>
+        </div>
+
+        <p id="msg">Choose your move</p>
+
+        <div id="final-scores">
+            <div class="final-score">
+                <p id="player1-final-score"></p>
+                <p id="player2-final-score"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let userScore = 0;
+        let compScore = 0;
+        let player1Score = 0;
+        let player2Score = 0;
+        let currentPlayerIndex = 0;
+
+        const choices = document.querySelectorAll(".choice");
+        const msg = document.querySelector("#msg");
+        const currentPlayerDisplay = document.querySelector("#current-player");
+
+        const players = [];
+
+        const genCompChoice = () => {
+            const options = ["rock", "paper", "scissors"];
+            const randIdx = Math.floor(Math.random() * 3);
+            return options[randIdx];
+        };
+
+        const drawGame = () => {
+            msg.innerText = "It's a draw! Play again.";
+        };
+
+        const showWinner = (userWin, userChoice, compChoice) => {
+            if (userWin) {
+                msg.innerText = `${players[currentPlayerIndex]} wins! ${userChoice} beats ${compChoice}`;
+            } else {
+                msg.innerText = `${players[currentPlayerIndex]} loses. ${compChoice} beats ${userChoice}`;
+            }
+        };
+
+        const playGame = (userChoice) => {
+            const compChoice = genCompChoice();
+
+            if (userChoice === compChoice) {
+                drawGame();
+            } else {
+                let userWin = true;
+                if (userChoice === "rock") {
+                    userWin = compChoice === "paper" ? false : true;
+                } else if (userChoice === "paper") {
+                    userWin = compChoice === "scissors" ? false : true;
+                } else {
+                    userWin = compChoice === "rock" ? false : true;
+                }
+                showWinner(userWin, userChoice, compChoice);
+
+                if (currentPlayerIndex === 0) {
+                    player1Score += userWin ? 1 : 0;
+                } else {
+                    player2Score += userWin ? 1 : 0;
+                }
+
+                currentPlayerIndex = (currentPlayerIndex + 1) % 2;
+                updatePlayerDisplay();
+
+                if (currentPlayerIndex === 0 && player1Score + player2Score > 0) {
+                    showFinalScores();
+                }
+            }
+        };
+
+        const updatePlayerDisplay = () => {
+            currentPlayerDisplay.innerText = `It's ${players[currentPlayerIndex]}'s turn`;
+        };
+
+        const showFinalScores = () => {
+            document.getElementById("final-scores").style.display = "block";
+            document.getElementById("player1-final-score").innerText = `${players[0]} Score: ${player1Score}`;
+            document.getElementById("player2-final-score").innerText = `${players[1]} Score: ${player2Score}`;
+        };
+
+        const startGame = () => {
+            const player1Name = document.getElementById("player1").value;
+            const player2Name = document.getElementById("player2").value;
+
+            if (player1Name && player2Name) {
+                players.push(player1Name, player2Name);
+                document.getElementById("input-container").style.display = "none";
+                document.getElementById("game-container").style.display = "block";
+                updatePlayerDisplay();
+            } else {
+                alert("Please enter names for both players.");
+            }
+        };
+
+        choices.forEach((choice) => {
+            choice.addEventListener("click", () => {
+                const userChoice = choice.getAttribute("id");
+                playGame(userChoice);
+            });
+        });
+    </script>
+</body>
+</html>
