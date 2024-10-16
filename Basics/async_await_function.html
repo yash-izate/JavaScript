@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #e64a19;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+            max-width: 400px;
+        }
+
+        .loading {
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Async Await API Example</h1>
+        <button class="button" onclick="fetchData()">Fetch Post</button>
+        <div class="result" id="result">Click the button to fetch a post.</div>
+    </div>
+
+    <script>
+
+async function fetchData() {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = "<p class='loading'>Fetching data...</p>";
+
+    try {
+        // Fetching data from a public API (JSONPlaceholder)
+        let response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+        
+        // Check if the response is successful
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        let data = await response.json();
+
+        // Display the fetched data
+        resultDiv.innerHTML = `
+            <h3>Post Title: ${data.title}</h3>
+            <p><strong>Body:</strong> ${data.body}</p>
+        `;
+    } catch (error) {
+        // Handle error and display message
+        resultDiv.innerHTML = "<p>Error fetching data.</p>";
+        console.error("There was an error fetching the data:", error);
+    }
+}
+
+    </script>
+</body>
+</html>
